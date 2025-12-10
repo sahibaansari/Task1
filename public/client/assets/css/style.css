@@ -1025,11 +1025,11 @@ body { font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helv
 
 
 /* =========================
-   Footer (sa-footer)
+   Footer 
    ========================= */
 
 .sa-footer {
-  background: #f8f8fa; /* light background like screenshot */
+  background: #f8f8fa; 
   color: #1b2436;
   padding-top: 28px;
   padding-bottom: 40px;
@@ -1221,4 +1221,20 @@ body { font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helv
 
 .sa-contact-form-wrapper {
     position: relative;
+}
+
+.sa-footer {
+    position: relative !important;
+    z-index: 1000 !important;
+    background: #f8f8fa !important;
+}
+
+.sa-hero-wrapper {
+    overflow: visible !important;
+    position: relative !important;
+}
+
+/* Make sure footer is not inside hero wrapper */
+body > .sa-hero-wrapper ~ .sa-footer {
+    display: block !important;
 }

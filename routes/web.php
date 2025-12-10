@@ -28,5 +28,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
 Route::prefix('api')->group(function() {
     Route::apiResource('contacts', ContactApiController::class);
 });
+
 // Remove or comment out auth routes if you don't need them
 // require __DIR__.'/auth.php';

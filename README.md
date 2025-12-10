@@ -96,3 +96,9 @@ DELETE	/api/contacts/{id}	            Delete contact
     Frontend: HTML5, CSS3, JavaScript, Bootstrap 5
 
     API: RESTful API
+
+
+    ## Test script 
+    
+
+    test-all.php(directly run on command line )

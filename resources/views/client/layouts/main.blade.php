@@ -29,23 +29,23 @@
     <main>
       @yield('content')
     </main>
-
+  
   </div> 
-
-  @include('client.inc.footer')
+@include('client.inc.footer')
        
-    @yield('script')
+    
+  
+  
+  yield('script')
 
 
-<script>
-   
 
      
  <script src="https://cdn.tailwindcss.com"></script>
     <script src="{{ asset('client/assets/js/script.js') }}"></script>
     
 
-</script>
+
    
     
 

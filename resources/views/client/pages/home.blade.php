@@ -302,6 +302,8 @@ document.getElementById('fileInput').addEventListener('change', function(e) {
     document.getElementById('fileName').textContent = fileName;
 });
 
+
+
 @endsection
 
 @section('script')
