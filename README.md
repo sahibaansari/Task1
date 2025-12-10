@@ -1,8 +1,9 @@
-# Laravel Contact Form Project
-
+#laravel project
 A complete Laravel application with contact form, admin dashboard, and REST API.
 
-aravel-contact-project/
+
+file structure:
+laravel-contact-project/
 ├── app/
 │ ├── Http/Controllers/
 │ │ ├── ContactController.php # Form handling
