@@ -77,21 +77,13 @@
                         <i class="fas fa-tachometer-alt me-2"></i> Dashboard
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{ route('admin.contacts.index') }}" class="nav-link">
-                        <i class="fas fa-envelope me-2"></i> Contact Messages
-                    </a>
-                </li>
+               
                 <li class="nav-item">
                     <a href="/" class="nav-link" target="_blank">
                         <i class="fas fa-external-link-alt me-2"></i> View Website
                     </a>
                 </li>
-                <li class="nav-item mt-4">
-                    <div class="nav-link">
-                        <small class="text-white-50">Admin Panel v1.0</small>
-                    </div>
-                </li>
+                
             </ul>
         </div>
     </div>
@@ -168,36 +160,7 @@
             </div>
         </div>
 
-        <!-- Quick Actions -->
-        <div class="row">
-            <div class="col-12">
-                <div class="stat-card">
-                    <h5>Quick Actions</h5>
-                    <div class="row mt-3">
-                        <div class="col-md-3">
-                            <a href="{{ route('admin.contacts.index') }}" class="btn btn-primary w-100 mb-2">
-                                <i class="fas fa-list me-2"></i> View Messages
-                            </a>
-                        </div>
-                        <div class="col-md-3">
-                            <a href="{{ route('admin.contacts.index') }}?status=pending" class="btn btn-warning w-100 mb-2">
-                                <i class="fas fa-clock me-2"></i> Pending Messages
-                            </a>
-                        </div>
-                        <div class="col-md-3">
-                            <a href="/" class="btn btn-success w-100 mb-2" target="_blank">
-                                <i class="fas fa-eye me-2"></i> View Website
-                            </a>
-                        </div>
-                        <div class="col-md-3">
-                            <button class="btn btn-info w-100 mb-2" onclick="location.reload()">
-                                <i class="fas fa-sync-alt me-2"></i> Refresh
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+      
 
         <!-- Recent Messages -->
         <div class="row mt-4">
@@ -267,19 +230,17 @@
             </div>
         </div>
 
-        <!-- Footer -->
-        <div class="mt-4 text-center text-muted">
-            <small>ShipX Admin Panel &copy; {{ date('Y') }} | Simple Admin Access</small>
-        </div>
+        
+       
     </div>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        // Simple logout function (if you want to add a logout button later)
+        
         function logout() {
             if (confirm('Are you sure you want to exit admin panel?')) {
-                // Just redirect to homepage since no authentication
+                
                 window.location.href = '/';
             }
         }

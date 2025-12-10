@@ -37,11 +37,8 @@ class ContactAdminController extends Controller
     public function show($id)
     {
         $contact = Contact::findOrFail($id);
-        // Auto-mark as read when viewing
-        if ($contact->status == 'pending') {
-            $contact->status = 'read';
-            $contact->save();
-        }
+        $contact->status = 'read';
+        $contact->save();
         
         return view('admin.contacts.show', compact('contact'));
     }
@@ -52,22 +49,27 @@ class ContactAdminController extends Controller
         return view('admin.contacts.edit', compact('contact'));
     }
 
-    public function update(Request $request, $id)
-    {
-        $contact = Contact::findOrFail($id);
-        
-        $validated = $request->validate([
-            'status' => 'required|in:pending,read,replied',
-            'notes' => 'nullable|string'
-        ]);
+   public function update(Request $request, $id)
+{
+    // Validate the request
+    $validated = $request->validate([
+        'status' => 'required|in:pending,read,replied',
+        'notes' => 'nullable|string|max:1000'
+    ]);
 
-        $contact->update([
-            'status' => $validated['status'],
-            'notes' => $validated['notes'] ?? $contact->notes
-        ]);
+    // Find the contact
+    $contact = Contact::findOrFail($id);
+    
+    // Update the contact
+    $contact->update([
+        'status' => $validated['status'],
+        'notes' => $validated['notes'] ?? $contact->notes
+    ]);
 
-        return redirect()->route('admin.contacts.index')->with('success', 'Contact updated successfully');
-    }
+    // Redirect with success message
+    return redirect()->route('admin.contacts.show', $contact->id)
+        ->with('success', 'Contact updated successfully!');
+}
 
     public function destroy($id)
     {

@@ -37,39 +37,40 @@ class ContactApiController extends Controller
         ]);
     }
 
-    // POST /api/contacts - Create new contact
-    public function store(Request $request)
-    {
-        $validator = Validator::make($request->all(), [
-            'fullname' => 'required|string|max:100',
-            'business_name' => 'nullable|string|max:100',
-            'email' => 'required|email|max:100',
-            'phone' => 'nullable|string|max:20',
-            'message' => 'required|string'
-        ]);
+  public function store(Request $request)
+{
+    
+    
+    $validator = Validator::make($request->all(), [
+        'fullname' => 'required|string|max:100',
+        'business_name' => 'nullable|string|max:100',
+        'email' => 'required|email|max:100',
+        'phone' => 'nullable|string|max:20',
+        'message' => 'required|string'
+    ]);
 
-        if ($validator->fails()) {
-            return response()->json([
-                'success' => false,
-                'errors' => $validator->errors()
-            ], 422);
-        }
-
-        $contact = Contact::create([
-            'fullname' => $request->fullname,
-            'business_name' => $request->business_name,
-            'email' => $request->email,
-            'phone' => $request->phone,
-            'message' => $request->message,
-            'status' => 'pending'
-        ]);
-
+    if ($validator->fails()) {
         return response()->json([
-            'success' => true,
-            'message' => 'Contact created successfully',
-            'data' => $contact
-        ], 201);
+            'success' => false,
+            'errors' => $validator->errors()
+        ], 422);
     }
+
+    $contact = Contact::create([
+        'fullname' => $request->fullname,
+        'business_name' => $request->business_name,
+        'email' => $request->email,
+        'phone' => $request->phone,
+        'message' => $request->message,
+        'status' => 'pending'
+    ]);
+
+    return response()->json([
+        'success' => true,
+        'message' => 'Contact created successfully',
+        'data' => $contact
+    ], 201);
+}
 
     // PUT /api/contacts/{id} - Update contact
     public function update(Request $request, $id)
